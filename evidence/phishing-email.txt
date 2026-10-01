@@ -1,0 +1,18 @@
+From: Microsoft 365 Security <security@northstar-security.example>
+To: Sarah Mitchell <sarah.mitchell@northstar-finance.example>
+Date: 14 September 2026 09:15
+Subject: Action Required: Your Microsoft 365 Session Has Expired
+
+Dear Sarah,
+
+Your Microsoft 365 session has expired.
+
+To avoid interruption to your account, please verify your
+credentials using the secure portal below:
+
+https://login-northstar-security.example/verify
+
+Failure to verify your account may result in temporary
+account restrictions.
+
+Microsoft 365 Security Team
