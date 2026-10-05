@@ -182,3 +182,74 @@ Taken together, the evidence shows a sequence of events consistent with possible
 This correlation provides sufficient evidence to justify containment and further investigation.
 
 However, the available evidence does not establish that Sarah's credentials were stolen, that an attacker controlled the unfamiliar IP, or that organizational data was accessed or exfiltrated.
+
+## Incident Response and Containment
+
+Based on the current evidence, the incident should be treated as a suspected account compromise requiring containment and further investigation.
+
+### Immediate Containment
+
+The following actions are recommended:
+
+1. **Reset Sarah's account password**
+
+   Reset the affected user's password to reduce the risk of continued unauthorized authentication.
+
+2. **Revoke active sessions**
+
+   Where supported by the organization's identity platform, revoke active sessions and authentication tokens associated with the account.
+
+3. **Review authentication activity**
+
+   Investigate authentication and session logs for additional unfamiliar IP addresses, locations, devices, or unusual login patterns.
+
+4. **Review account and mailbox activity**
+
+   Examine available logs for suspicious account changes, mailbox activity, unexpected application access, or other actions that occurred following the unusual authentication.
+
+5. **Preserve evidence**
+
+   Preserve the phishing email, authentication logs, IOC analysis, timeline, and other relevant investigation data before making changes that could affect the evidence.
+
+### Phishing Containment
+
+The suspected phishing source should be investigated before applying broader email-security controls.
+
+If the sender or domain is confirmed to be malicious, appropriate controls could be used to prevent similar messages from reaching other users.
+
+The original phishing email should be retained as evidence before removing or blocking messages.
+
+### User Awareness
+
+Sarah should receive appropriate security guidance regarding phishing indicators, including:
+
+- Unexpected requests to verify credentials.
+- Messages that create urgency or fear.
+- Links leading to unfamiliar authentication domains.
+- Sender addresses that do not match the service being referenced.
+
+User education should form part of the prevention and lessons-learned process rather than replacing technical containment.
+
+### Further Investigation
+
+Additional investigation should focus on determining whether unauthorized activity occurred after the suspicious authentication.
+
+Recommended evidence to review includes:
+
+- Authentication and session logs.
+- Identity-provider activity.
+- Mailbox audit logs.
+- Application access logs.
+- Account and security-setting changes.
+- File or data-access logs.
+- Evidence of additional authentication activity.
+
+The objective is to determine whether the account was accessed by an unauthorized party and whether any organizational data was accessed or exfiltrated.
+
+### Response Priority
+
+The response should prioritize:
+
+**Contain → Preserve → Investigate → Remediate → Educate**
+
+Containment reduces the potential for continued unauthorized access, while evidence preservation ensures that the investigation can continue without unnecessarily altering relevant evidence.
