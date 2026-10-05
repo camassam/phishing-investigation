@@ -123,3 +123,62 @@ The available evidence did not include sufficient information to establish:
 - Whether the account was used for additional malicious activity.
 
 Additional authentication, session, mailbox, application, and data-access logs would be required to investigate these questions further.
+
+## Findings and Analysis
+
+### Finding 1 — Phishing Characteristics
+
+The email contains several characteristics associated with phishing.
+
+The sender claims to represent Microsoft 365 but uses the domain `northstar-security.example`. The message also creates urgency by stating that the user's session has expired and warning of temporary account restrictions.
+
+The recipient is instructed to verify credentials through an external authentication URL.
+
+These characteristics provide sufficient reason to treat the email as suspicious and investigate it further.
+
+### Finding 2 — User Interaction with the Suspicious Link
+
+The authentication logs record that the suspicious authentication link was accessed at **09:17:36**.
+
+The phishing email was received at **09:15:02**, meaning the link was accessed approximately **2 minutes and 34 seconds** after the email was received.
+
+This establishes a temporal relationship between receipt of the phishing email and interaction with the suspicious authentication page.
+
+### Finding 3 — Unusual Authentication Activity
+
+A successful authentication occurred at **09:18:11** from `203.0.113.45`.
+
+This differs from Sarah's known successful authentication source of `198.51.100.24`.
+
+The timing is significant because the unusual authentication occurred approximately **3 minutes and 9 seconds** after the phishing email was received and shortly after the suspicious link was accessed.
+
+### Finding 4 — Repeated Authentication Attempts
+
+Following the successful authentication at 09:18:11, two failed authentication attempts were recorded from the same unfamiliar IP address:
+
+- **09:19:03 — FAILED**
+- **09:19:22 — FAILED**
+
+A further successful authentication then occurred at:
+
+- **09:20:04 — SUCCESS**
+
+The sequence of successful and failed authentication attempts increases concern because authentication from the unfamiliar IP ultimately succeeded again.
+
+### Finding 5 — IP Address Assessment
+
+The IP address `203.0.113.45` belongs to a documentation-only address range used within the simulated investigation.
+
+Therefore, the IP address itself cannot be treated as evidence of known malicious infrastructure.
+
+The significance of the address comes from its **difference from Sarah's known authentication source and its timing within the phishing sequence**, rather than from an external malicious-IP reputation.
+
+### Overall Analysis
+
+Taken together, the evidence shows a sequence of events consistent with possible account compromise:
+
+**Phishing email received → suspicious link accessed → unusual successful authentication → failed authentication attempts → subsequent successful authentication**
+
+This correlation provides sufficient evidence to justify containment and further investigation.
+
+However, the available evidence does not establish that Sarah's credentials were stolen, that an attacker controlled the unfamiliar IP, or that organizational data was accessed or exfiltrated.
