@@ -43,3 +43,83 @@ The investigation was conducted to:
 The investigation focused on the simulated phishing email, identified indicators, authentication activity associated with Sarah Mitchell's account, the incident timeline, and the simulated threat-intelligence assessment of the suspicious IP address.
 
 The available evidence was sufficient to identify suspicious activity and support a Medium severity assessment, but it was not sufficient to confirm credential theft, unauthorized data access, or data exfiltration.
+
+
+## Evidence Examined
+
+The investigation examined the following evidence sources within the simulated environment.
+
+### 1. Phishing Email
+
+**File:** `evidence/phishing-email.txt`
+
+The simulated email was reviewed for suspicious characteristics including:
+
+- Sender identity and domain
+- Subject and message content
+- Use of urgency and account-restriction language
+- Credential-verification request
+- Destination URL
+
+The email contained multiple characteristics associated with phishing and warranted further investigation.
+
+### 2. Indicator of Compromise Analysis
+
+**File:** `analysis/iocs.md`
+
+The IOC analysis identified the following indicators:
+
+| Indicator Type | Indicator | Significance |
+|---|---|---|
+| Email address | `security@northstar-security.example` | Sender claims to represent Microsoft 365 but uses a different domain |
+| Domain | `login-northstar-security.example` | Appears designed to resemble an authentication service |
+| URL | `https://login-northstar-security.example/verify` | Directs the recipient to an external authentication page |
+| Targeted user | `sarah.mitchell@northstar-finance.example` | Recipient of the suspected phishing email |
+
+These indicators supported the decision to investigate the email further.
+
+### 3. Authentication Logs
+
+**File:** `logs/authentication.log`
+
+The authentication logs were reviewed to identify normal and unusual authentication activity associated with Sarah's account.
+
+The logs established:
+
+- A known successful authentication from `198.51.100.24`.
+- Access to the suspicious authentication link at 09:17:36.
+- A successful authentication from `203.0.113.45` at 09:18:11.
+- Two failed authentication attempts from `203.0.113.45`.
+- A subsequent successful authentication from `203.0.113.45` at 09:20:04.
+
+This sequence provided evidence suggesting possible account compromise.
+
+### 4. Incident Timeline
+
+**File:** `analysis/incident-timeline.md`
+
+The timeline was constructed to establish the chronological relationship between the phishing email, link access, and subsequent authentication activity.
+
+The timeline showed that the unusual authentication activity occurred shortly after interaction with the suspicious authentication link.
+
+### 5. Threat Intelligence Assessment
+
+**File:** `analysis/threat-intelligence.md`
+
+The suspicious IP address `203.0.113.45` was assessed within the context of the simulated environment.
+
+The address belongs to a documentation-only IP range and therefore should not be treated as real malicious infrastructure.
+
+The investigation consequently relied on the **context and timing of the authentication activity**, rather than assigning maliciousness to the IP based on reputation.
+
+### Evidence Limitations
+
+The available evidence did not include sufficient information to establish:
+
+- Whether Sarah's credentials were actually captured.
+- Whether the successful authentication was performed by an unauthorized individual.
+- Whether data was accessed.
+- Whether data was exfiltrated.
+- Whether the account was used for additional malicious activity.
+
+Additional authentication, session, mailbox, application, and data-access logs would be required to investigate these questions further.
