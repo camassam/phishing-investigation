@@ -46,4 +46,4 @@ No real users, credentials, organisations, or production systems are being targe
 
 ## Status
 
-🚧 Project currently in development.
+✅ Completed — simulated phishing investigation and incident-response analysis
